@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Role Name
 =========
 
@@ -36,3 +37,7 @@ Author Information
 ------------------
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+=======
+# zookeeper
+ansible galaxy zookeeper cluster install for Centos7
+>>>>>>> 1d39c60c2c688fd76c08bb62b8a9a181206054d8
