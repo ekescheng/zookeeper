@@ -10,23 +10,23 @@
 - name: cp config sample to zoo.cfg
   copy: src=/opt/zookeeper/conf/zoo_sample.cfg dest=/opt/zookeeper/conf/zoo.cfg owner=root group=root
 - name: config log path
-    lineinfile:
-     file: /opt/zookeeper/conf/log4j.properties
-     regexp: 'zookeeper.log.dir'
-     line: 'zookeeper.log.dir=/opt/logs/zookeeper'
+  lineinfile:
+    file: /opt/zookeeper/conf/log4j.properties
+    regexp: 'zookeeper.log.dir'
+    line: 'zookeeper.log.dir=/opt/logs/zookeeper'
 - name: config tracelog path
-    lineinfile:
-     file: /opt/zookeeper/conf/log4j.properties
-     regexp: 'zookeeper.tracelog.dir'
-     line: 'zookeeper.tracelog.dir=/opt/logs/zookeeper'
+  lineinfile:
+    file: /opt/zookeeper/conf/log4j.properties
+    regexp: 'zookeeper.tracelog.dir'
+    line: 'zookeeper.tracelog.dir=/opt/logs/zookeeper'
 - name: config data path
-    lineinfile:
-     file: /opt/zookeeper/conf/zoo.cfg
-     regexp: 'dataDir=/tmp/zookeeper'
-     line: 'dataDir=/opt/data'
+  lineinfile:
+    file: /opt/zookeeper/conf/zoo.cfg
+    regexp: 'dataDir=/tmp/zookeeper'
+    line: 'dataDir=/opt/data'
 - name: Ansible lineinfile mdoule.
-    lineinfile:
-     path: /opt/data/myid
-     line: {{ myid }} 
-     state: present
-     create: yes
+  lineinfile:
+    path: /opt/data/myid
+    with_items: "{{ myid }}"
+    state: present
+    create: yes
