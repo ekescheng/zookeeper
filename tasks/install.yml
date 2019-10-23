@@ -25,6 +25,6 @@
 - name: Ansible lineinfile mdoule.
   lineinfile:
     path: /opt/data/myid
-    with_items: "{{ myid }}"
+    line: "{{ myid }}"
     state: present
     create: yes
