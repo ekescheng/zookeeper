@@ -1,3 +1,4 @@
 ---
 # tasks file for zookeeper
+- include: installjdk.yml
 - include: install.yml
