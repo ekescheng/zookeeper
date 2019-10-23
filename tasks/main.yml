@@ -1,2 +1,3 @@
 ---
 # tasks file for zookeeper
+- include: install.yml
