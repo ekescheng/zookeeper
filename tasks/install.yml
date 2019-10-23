@@ -6,7 +6,7 @@
 - name: Create zk logs dir
   file: path=/opt/logs/zookeeper state=directory
 - name: unarchive gz file
-  - unarchive: src=zookeeper-3.4.10.tar.gz dest=/opt/zookeeper
+  unarchive: src=zookeeper-3.4.10.tar.gz dest=/opt/zookeeper
 - name: cp config sample to zoo.cfg
   copy: src=/opt/zookeeper/conf/zoo_sample.cfg dest=/opt/zookeeper/conf/zoo.cfg owner=root group=root
 - name: config log path
