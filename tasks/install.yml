@@ -1,27 +1,25 @@
 ---
-- name: Create zk install dir
-  file: path=/opt/zookeeper state=directory
 - name: Create zk data dir
   file: path=/opt/data state=directory
 - name: Create zk logs dir
   file: path=/opt/logs/zookeeper state=directory
 - name: unarchive gz file
-  unarchive: src=zookeeper-3.4.10.tar.gz dest=/opt/zookeeper
+  unarchive: src=zookeeper-3.4.10.tar.gz dest=/opt
 - name: cp config sample to zoo.cfg
-  copy: src=/opt/zookeeper/conf/zoo_sample.cfg dest=/opt/zookeeper/conf/zoo.cfg owner=root group=root
+  copy: src=/opt/zookeeper-3.4.10/conf/zoo_sample.cfg dest=/opt/zookeeper-3.4.10/conf/zoo.cfg owner=root group=root
 - name: config log path
   lineinfile:
-    file: /opt/zookeeper/conf/log4j.properties
+    file: /opt/zookeeper-3.4.10/conf/log4j.properties
     regexp: 'zookeeper.log.dir'
     line: 'zookeeper.log.dir=/opt/logs/zookeeper'
 - name: config tracelog path
   lineinfile:
-    file: /opt/zookeeper/conf/log4j.properties
+    file: /opt/zookeeper-3.4.10/conf/log4j.properties
     regexp: 'zookeeper.tracelog.dir'
     line: 'zookeeper.tracelog.dir=/opt/logs/zookeeper'
 - name: config data path
   lineinfile:
-    file: /opt/zookeeper/conf/zoo.cfg
+    file: /opt/zookeeper-3.4.10/conf/zoo.cfg
     regexp: 'dataDir=/tmp/zookeeper'
     line: 'dataDir=/opt/data'
 - name: Ansible lineinfile mdoule.
