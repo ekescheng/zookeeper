@@ -1,6 +1,7 @@
----
-- name: install jdk 1.8.0
+- name: install jdk
   command: java
   register: result_test
+
+- name: install jdk2
   yum: name=java-1.8.0-openjdk.x86_64 state=present
-  when: result_test.stdout == "command not found"
+  when: result_test.stdout.find('command not found')  == 1
